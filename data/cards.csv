@@ -1,0 +1,19 @@
+sceneType,floor,name,imgid,body,action1,action2,action3,,str,agi,gold,item,limbs,ember
+,,,,,,,,,7,5,5,4,3,3
+encounter,,Anubis,anubis,Large monstrous humanoid is approaching you.,Attack,,Retreat (-1 floor),,y,,,,,
+encounter,,Cerberus,cerberus,A multi-headed beast is about to attack.,Attack,,Retreat (-1 floor),,y,,,,,
+encounter,,Dragon,dragon,A serpent the size of a room is getting close.,Attack,,Retreat (-1 floor),,y,,,,,
+encounter,,Mahakali,mahakali,A multi-armed creature appears in front of you.,Attack,,Retreat (-1 floor),,y,,,,,
+obstacle,,Ventilation,ventilation,,Jump in.,,Retreat (-1 floor),,,,,,y,
+obstacle,,Rusty bridge,rusty bridge,,Grab the pipe AGI check.,,Fall down,,,y,,,,y
+obstacle,,Controller,switch,,Throw an item,Jump (AGI check),Retreat (-1 floor),,,,,y,,
+obstacle,,Flooded tunnel,flooded tunnel,,% loose eyes,Swim blind (- 1 ember),Retreat (-1 floor),,,,,,y,y
+obstacle,,Bouncer,bouncer,,Pay 10g to pass,Dsitract the bouncer (AGI check),Retreat (-1 floor),,,y,y,,,
+obstacle,,Locked iron door,door,,Lockpick (AGI check),STR check (high risk),Retreat (-1 floor),Repeatable,y,y,,,,
+container,,Locked storage container,storage,,Lockpick (+2 items) (AGI check),STR check (high risk),Leave,Repeatable,y,y,,,,
+container,,Wall heater system,heater,,Take ember (+1 ember) (AGI check),,Leave,Repeatable,,,,y,,
+rest,,Room,rest,"An empty room, a good place to recover.",Rest (+2 embers),Fix items (+2 items),Equip new items,Repeatable,,,,y,,y
+misc,,Merchant,merchant,You find a young man. He offers you a varity of items for sale.,Buy rope (5g),Buy coffee (5g),Leave,Repeatable,,,y,y,,
+misc,,Doctor,doctor,A woman has an improvised operation room. She is helping locals and refugees that sty in the tower.,Pay 10g to add a prostetic,Buy bandages (5g),Leave,,,,y,,y,
+misc,,Fortune teller,fortune teller,Pay 5g to repeat this event.,Gain 1 STR,Gain 1 AGI,Leave,repeat for 5g,y,y,y,,,
+misc,,Gamble,gamble,"Stranger offers you to play a game of cards. Not the idal moment, but a few coins could be usefull.","Bet 5 g, win 10g",Buy crystal (5g),Leave,,,,y,,,
