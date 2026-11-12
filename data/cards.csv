@@ -1,19 +1,16 @@
-sceneType,floor,name,imgid,body,action1,action2,action3,,str,agi,gold,item,limbs,ember
-,,,,,,,,,7,5,5,4,3,3
-encounter,,Anubis,anubis,Large monstrous humanoid is approaching you.,Attack,,Retreat (-1 floor),,y,,,,,
-encounter,,Cerberus,cerberus,A multi-headed beast is about to attack.,Attack,,Retreat (-1 floor),,y,,,,,
-encounter,,Dragon,dragon,A serpent the size of a room is getting close.,Attack,,Retreat (-1 floor),,y,,,,,
-encounter,,Mahakali,mahakali,A multi-armed creature appears in front of you.,Attack,,Retreat (-1 floor),,y,,,,,
-obstacle,,Ventilation,ventilation,,Jump in.,,Retreat (-1 floor),,,,,,y,
-obstacle,,Rusty bridge,rusty bridge,,Grab the pipe AGI check.,,Fall down,,,y,,,,y
-obstacle,,Controller,switch,,Throw an item,Jump (AGI check),Retreat (-1 floor),,,,,y,,
-obstacle,,Flooded tunnel,flooded tunnel,,% loose eyes,Swim blind (- 1 ember),Retreat (-1 floor),,,,,,y,y
-obstacle,,Bouncer,bouncer,,Pay 10g to pass,Dsitract the bouncer (AGI check),Retreat (-1 floor),,,y,y,,,
-obstacle,,Locked iron door,door,,Lockpick (AGI check),STR check (high risk),Retreat (-1 floor),Repeatable,y,y,,,,
-container,,Locked storage container,storage,,Lockpick (+2 items) (AGI check),STR check (high risk),Leave,Repeatable,y,y,,,,
-container,,Wall heater system,heater,,Take ember (+1 ember) (AGI check),,Leave,Repeatable,,,,y,,
-rest,,Room,rest,"An empty room, a good place to recover.",Rest (+2 embers),Fix items (+2 items),Equip new items,Repeatable,,,,y,,y
-misc,,Merchant,merchant,You find a young man. He offers you a varity of items for sale.,Buy rope (5g),Buy coffee (5g),Leave,Repeatable,,,y,y,,
-misc,,Doctor,doctor,A woman has an improvised operation room. She is helping locals and refugees that sty in the tower.,Pay 10g to add a prostetic,Buy bandages (5g),Leave,,,,y,,y,
-misc,,Fortune teller,fortune teller,Pay 5g to repeat this event.,Gain 1 STR,Gain 1 AGI,Leave,repeat for 5g,y,y,y,,,
-misc,,Gamble,gamble,"Stranger offers you to play a game of cards. Not the idal moment, but a few coins could be usefull.","Bet 5 g, win 10g",Buy crystal (5g),Leave,,,,y,,,
+imgid,title,description,ac1title,ac1,ac2title,ac2,ac3title,ac3
+raijin,Raijin,You hear footsteps and stop right behind the corner. Someone is her with you. You hear cracling sounds as a large figure emerges from the concrete tunnel.,Fight,Reroll a die| if roll is 1 or 2 add 3 dice.,Defend,Gain 1 die.,,
+medusa,Medusa,You sense motion in a small room in front of you. Wires are moving and you see a twisted body fully controlled by a mechanical device.,Fight,Reroll a die| if roll is 2 or 3 add a die and repeat.,Defend,Gain 1 die.,,
+kali,Kali,Your vission fails you. Everything gets so blurry... You see a three meters tall multi-armed creature in front of you.,Fight,Lose 3 life if you don't have a [3]. Loose 5 lfe if you don't have a [5].,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).
+anubis,Anubis,,Fight,Lose life eqal to total roll value of odd dice. Cap at 5.,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).
+shop,Shop,,Buy,Pay 8 gold to get 2 items.,Steal,"Gain 1 die| and a random item.",Bargain,Reroll all dice| get 1 gold per die (repeatable).
+rest,Rest,You find yourself in a dark quite area. Maybe if you stay silent it could be a good place to rest and catch your breath.,Repair,Get 1 item.,Meditate,Remove 1 dice.,Tend wounds,Get 4 life.
+door,Door,,Unlock,Proceed if you have a [2] and [4].,Break,Gain 2 dice.,Lockpick,Reroll 3 dice (repeatable).
+loot,Loot box,,Unlock,Get an item if you have a  [2] and [4].,Break the door open,Gain 2 die and a random items.,Lockpick,Reroll 2 dice (repeatable).
+elevator,Elevator,,Go up,Remove a [2] die.,Climb the elevator shaft,Gain 1 die.,,
+ventilation,Ventilation,,Jump in,Reroll all dice. Take tripple damage. Destory odd rolls. ,Return,Gain 1 die.,,
+explosives,Explosives,,Detonate,Reroll all dice. Gain 1 die per odd roll| lose  per even.,Take the long path,Gain 1 die.,,
+casino,Casino,,Gamble,Reroll all. Gain 1 gold per [2]| 1 life per [3]| 1 die per [4]. Lose 1 die per [5].,Return,Gain 1 die.,,
+tunnel,Sewers system,,Wonder,Loose half of life unless you have [1][2][3].,Return,Gain 2 dice.,Wander,Reoll 3 dice (repeatable).
+bouncer,Trickster,,Duel,Reroll all 3 times.,Intel,Reroll a die. If you have [1][2][3] remove 2 dice| else add 2.,Trade,Reroll a die. Gain that much gold. If you have more than 9 gold add a die (repeatable).
+doctor,Monster,15 life,Attack,Deal damage equal to TRV. If enemy survives take 5 dmg.,Block,Reroll all (repeatable).,Enrage,Gain 1 die (repeatable).

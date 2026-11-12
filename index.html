@@ -5,16 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TROLL-A</title>
 
+    <!-- Grenze -->
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Crimson Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-    <button onclick="g.newCard()" class="btn" style="position: absolute; left: 12px; top: 12px;">Next card (-1 ember)</button>
+
+    <div id="controls" style="position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; gap: 2px;">
+
+        <button onclick="new Die()" class="btn">Add</button>
+        <button onclick="g.deleteRandomDie()" class="btn">Remove</button>
+        <button onclick="g.rerollMultiple(0)" class="btn">Reroll all</button>
+        <button onclick="g.rerollMultiple(1)" class="btn">Reroll 1</button>
+        <button onclick="g.rerollMultiple(3)" class="btn">Reroll 3</button>
+
+        <input class="input" type="text">
+    </div>
 
     <div id="screen">
-        <div id="card-img" class="card"></div>
-        <div id="card-content" class="card"></div>
+        <!-- Pile Dice -->      
+        <div id="dice"></div>
+
+        <!-- Ui -->
+        <div class="uiElements">
+            
+            <div class="stat">
+                <img src="./img/ico/life.png">
+                <p id="lifeUi">20</p>
+            </div>
+            
+            <div class="stat">
+                <img src="./img/ico/floor.png">
+                <p id="floorUi"></p>
+            </div>
+            
+            <div class="stat">
+                <img src="./img/ico/coin.png">
+                <p id="coinsUi">0</p>
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div id="cardImg" class="card"></div>
+        <div id="cardContent" class="card"></div>
     </div>
 
 </body>
@@ -22,4 +62,6 @@
 
 <!--JS files-->
 <script src="js/utility.js"></script>
+<script src="js/config.js"></script>
 <script src="js/main.js"></script>
+<script src="js/dice.js"></script>
