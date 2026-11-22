@@ -1,16 +1,16 @@
-imgid,title,description,ac1title,ac1,ac2title,ac2,ac3title,ac3
-raijin,Raijin,You hear footsteps and stop right behind the corner. Someone is her with you. You hear cracling sounds as a large figure emerges from the concrete tunnel.,Fight,Reroll a die| if roll is 1 or 2 add 3 dice.,Defend,Gain 1 die.,,
-medusa,Medusa,You sense motion in a small room in front of you. Wires are moving and you see a twisted body fully controlled by a mechanical device.,Fight,Reroll a die| if roll is 2 or 3 add a die and repeat.,Defend,Gain 1 die.,,
-kali,Kali,Your vission fails you. Everything gets so blurry... You see a three meters tall multi-armed creature in front of you.,Fight,Lose 3 life if you don't have a [3]. Loose 5 lfe if you don't have a [5].,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).
-anubis,Anubis,,Fight,Lose life eqal to total roll value of odd dice. Cap at 5.,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).
-shop,Shop,,Buy,Pay 8 gold to get 2 items.,Steal,"Gain 1 die| and a random item.",Bargain,Reroll all dice| get 1 gold per die (repeatable).
-rest,Rest,You find yourself in a dark quite area. Maybe if you stay silent it could be a good place to rest and catch your breath.,Repair,Get 1 item.,Meditate,Remove 1 dice.,Tend wounds,Get 4 life.
-door,Door,,Unlock,Proceed if you have a [2] and [4].,Break,Gain 2 dice.,Lockpick,Reroll 3 dice (repeatable).
-loot,Loot box,,Unlock,Get an item if you have a  [2] and [4].,Break the door open,Gain 2 die and a random items.,Lockpick,Reroll 2 dice (repeatable).
-elevator,Elevator,,Go up,Remove a [2] die.,Climb the elevator shaft,Gain 1 die.,,
-ventilation,Ventilation,,Jump in,Reroll all dice. Take tripple damage. Destory odd rolls. ,Return,Gain 1 die.,,
-explosives,Explosives,,Detonate,Reroll all dice. Gain 1 die per odd roll| lose  per even.,Take the long path,Gain 1 die.,,
-casino,Casino,,Gamble,Reroll all. Gain 1 gold per [2]| 1 life per [3]| 1 die per [4]. Lose 1 die per [5].,Return,Gain 1 die.,,
-tunnel,Sewers system,,Wonder,Loose half of life unless you have [1][2][3].,Return,Gain 2 dice.,Wander,Reoll 3 dice (repeatable).
-bouncer,Trickster,,Duel,Reroll all 3 times.,Intel,Reroll a die. If you have [1][2][3] remove 2 dice| else add 2.,Trade,Reroll a die. Gain that much gold. If you have more than 9 gold add a die (repeatable).
-doctor,Monster,15 life,Attack,Deal damage equal to TRV. If enemy survives take 5 dmg.,Block,Reroll all (repeatable).,Enrage,Gain 1 die (repeatable).
+hide,cardId,ac1title,ac1,ac2title,ac2,ac3title,ac3,repeatable,title,description,wide
+y,raijin,Fight,Reroll a die. If that die roll value is [1] or [2] add 3 dice.,Defend,Gain 1 die.,,,,Raijin,You hear footsteps and stop right behind the corner. Someone is her with you. You hear cracling sounds as a large figure emerges from the concrete tunnel.,y
+y,medusa,Fight,Reroll a die. If roll is 2 or 3 add a die.<br>If roll is 4 or 5 go to the next floor.,Run!,Gain 1 die.,,,yn,Medusa,You sense motion in a small room in front of you. Wires are moving and you see a twisted body fully controlled by a mechanical device.,y
+y,kali,Fight,Lose 3 life if you don't have a [3]. Loose 5 lfe if you don't have a [5].,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).,nny,Kali,Your vission fails you. Everything gets so blurry... You see a three meters tall multi-armed creature in front of you.,y
+y,anubis,Fight,Lose life eqal to total roll value of odd dice. Cap at 5.,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).,nny,Anubis,,y
+,shop,Buy,Pay 8 gold to get 2 items.,Steal,Gain 1 die| and a random item.,Bargain,Reroll all dice| get 1 gold per die (repeatable).,nny,Shop,,y
+y,rest,Repair,Get 1 item.,Meditate,Remove 1 dice.,Tend wounds,Get 4 life.,,Rest,You find yourself in a dark quite area. Maybe if you stay silent it could be a good place to rest and catch your breath.,
+y,door,Unlock,Proceed if you have a [2] and [4].,Break,Gain 2 dice.,Lockpick,Reroll 3 dice (repeatable).,nny,Door,,
+y,loot,Unlock,Get an item if you have a  [2] and [4].,Break the lid open,Gain 2 die and a random items.,Lockpick,Reroll 2 dice (repeatable).,nny,Unwanted guest,You hear a conversation in a room nearby. Warm orange light reveals a locked iron box...,
+y,elevator,Fix the elevator,Remove a [2] die to proceed.,Climb the elevator shaft,Gain 1 die.,,,,Elevator,,
+y,vent,Jump in,Reroll all dice. Take tripple damage fom this reroll. Destory odd rolls. ,Return,Gain 1 die.,,,,Ventilation,,
+y,explosive,Detonate,Reroll 1 die. If roll is odd| add that many dice. If roll is even| remove that many dice instead.,Take the long path,Gain 1 die.,,,,Explosives,,
+y,casino,Gamble,Reroll all. Gain 1 gold per [2]| 1 life per [3]| 1 die per [4]. Lose 1 die per [5].,Return,Gain 1 die.,,,,Casino,,
+y,tunnel,Wonder,Loose half of life unless you have [1][2][3].,Return,Gain 2 dice.,Wander,Reoll 3 dice (repeatable).,nny,Sewers system,,
+y,bouncer,Duel,Reroll all 3 times.,Intel,Reroll a die. If you have [1][2][3] remove 2 dice| else add 2.,Trade,Reroll a die. Gain that much gold. If you have more than 9 gold add a die (repeatable).,nny,Trickster,,
+,monster,Attack,If total roll value of your dice is less than 15| take 5 dmg.,Block,Reroll all (repeatable).,Enrage,Gain 1 die (repeatable).,nyy,Monster,15 life,

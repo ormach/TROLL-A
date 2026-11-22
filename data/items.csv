@@ -1,0 +1,10 @@
+itemId,hide,name,effect,durabiliy,effectType
+1,y,Bandages,Gain 4 life.,1,use
+2,y,Aspirin,Gain 1 life per dice.,1,use
+3,y,Antiseptic,Gain life equal to yout floor level.,1,use
+4,y,Adrenaline pen,Add 1 die. Gain 6 life.,1,use
+5,y,Booze,Lose all duplicate dice.,1,use
+6,,Coffee,Gain or lose dice until you have 5.,1,use
+7,y,Glue,Reroll 1 die (take no damage from this reroll).,3,use
+8,y,Tape,Reroll all dice (take no damage form this reroll).,1,use
+9,,Knife,Loose 1 die.,,

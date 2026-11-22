@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TROLL-A</title>
 
-    <!-- Grenze -->
-    <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Crimson Pro -->
+    <!-- G-Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -18,7 +18,7 @@
 
 <body>
 
-    <div id="controls" style="position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; gap: 2px;">
+    <!-- <div id="controls" style="position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; gap: 2px;">
 
         <button onclick="new Die()" class="btn">Add</button>
         <button onclick="g.deleteRandomDie()" class="btn">Remove</button>
@@ -27,8 +27,10 @@
         <button onclick="g.rerollMultiple(3)" class="btn">Reroll 3</button>
 
         <input class="input" type="text">
-    </div>
+    </div> -->
 
+
+    <!-- GAME -->
     <div id="screen">
         <!-- Pile Dice -->      
         <div id="dice"></div>
@@ -45,7 +47,7 @@
                 <img src="./img/ico/floor.png">
                 <p id="floorUi"></p>
             </div>
-            
+
             <div class="stat">
                 <img src="./img/ico/coin.png">
                 <p id="coinsUi">0</p>
@@ -53,8 +55,16 @@
         </div>
 
         <!-- Cards -->
-        <div id="cardImg" class="card"></div>
-        <div id="cardContent" class="card"></div>
+         <div id="cardContainer">
+             <div id="cardImg" class="card"></div>
+             <div id="cardContent" class="card"></div>
+         </div>
+        
+        <div id="itemContainer">
+            <img id="how" src="./img/ico/die-info.png" alt="">
+            <div id="items"></div>
+        </div>
+
     </div>
 
 </body>
@@ -65,3 +75,5 @@
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
 <script src="js/dice.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/items.js"></script>

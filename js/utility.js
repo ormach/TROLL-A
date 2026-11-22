@@ -1,7 +1,10 @@
-function runAnim(elem, animClass){//Allows to run css animation mutliple times
-    elem.classList.remove(animClass)
-    void elem.offsetWidth; // enable reflow
-    elem.classList.add(animClass)
+function runAnim(elem, animClass){//Allows to run css animation multiple times
+    return new Promise(resolve => {
+        elem.classList.remove(animClass)
+        void elem.offsetWidth; // enable reflow
+        elem.addEventListener("animationend", resolve, { once: true }); //promise that allows to run multiple
+        elem.classList.add(animClass)
+    });
 }
 
 function clearClassOfAll(classId){//Removes class from all html elems
@@ -87,6 +90,10 @@ function el(id, mod){//Returns html elem by id
     }
 }
 
+function isOdd(val) {
+    if(val % 2 !== 0){return true}
+}
+
 function cloneArr(arr){//Make a detached copy of an array
     return JSON.parse(JSON.stringify(arr));
 }
@@ -101,7 +108,7 @@ function removeDuplicatesArr(arr){
 
 function checkDuplicates(arr, quantOfDuplicates){
     //Take array of digits [1,2,3,3]
-    //Looks for diplicates and returns value that has a particular number of duplicates.
+    //Looks for duplicates and returns value that has a particular number of duplicates.
     //quantOfDuplicated control how many duplicate values should there be for the value to be returned
 
     const counts = {};

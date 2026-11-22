@@ -11,11 +11,12 @@ class Die {
         this.dieId = genId('di')
         
         this.genDieHtml()
+        this.updateHtml()
         g.dice.push(this)
     }
 
     //Adds die html element to #dice
-    genDieHtml(){
+    async genDieHtml(){
         let die = document.createElement('div')
         
         die.id = this.dieId
@@ -23,10 +24,11 @@ class Die {
         // die.setAttribute('draggable','true')
         // die.setAttribute('ondragstart','drag(event)')
         die.setAttribute('data-rollvalue', this.value)
+        die.setAttribute('style', `transform:rotate(${4 - rng(8)}deg)`)
         
         el('dice').append(die)
         this.htmlElem = die
-        this.spinAnim()
+
         // this.setPosition()
 
         //Click listener
@@ -99,18 +101,11 @@ class Die {
         // fixDrag(die) //Removes the base image during drag and leaves the projection
     }
 
-    //Run spin animation
-    spinAnim(){
-        this.htmlElem.classList.remove("spin");
-        void el.offsetWidth; // force reflow so browser "resets" animation
-        this.htmlElem.classList.add("spin");
-    }
-
     delete(){
         this.htmlElem.remove()
         removeFromArr(g.dice, this)
     }
-    setRollValue(val, bypassOnRollFx, ignoreRounding){
+    async setRollValue(val, bypassOnRollFx, ignoreRounding){
         if (val > 8) val = 8 //Frog + crown + pliers combo 
 
         //Normalize rolls
@@ -132,12 +127,21 @@ class Die {
 
         //Update html
         this.updateHtml()
+
+        //Check for damage (everything goes through setRollValue)
+        if(this.value === 1 || this.value === 6){
+            g.loseLife(1)
+        }
+
+        g.updateUI()
     }
 
-    updateHtml(){
+    async updateHtml(){
         if(this.htmlElem === undefined) return
         this.htmlElem.classList = `die die${this.value}`
         this.htmlElem.setAttribute('data-rollvalue', this.value)
+
+        await runAnim(this.htmlElem, "spin")
     }
     setPosition(){
         // Image & position
@@ -194,6 +198,9 @@ class Die {
         this.setRollValue(newValue)
     }
     reroll(){
-        this.setRollValue(rng(6,1))
-    }  
+        let roll = rng(6,1)
+        this.setRollValue(roll)
+
+        return roll
+    }
 }
