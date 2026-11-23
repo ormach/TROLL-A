@@ -18,18 +18,6 @@
 
 <body>
 
-    <!-- <div id="controls" style="position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; gap: 2px;">
-
-        <button onclick="new Die()" class="btn">Add</button>
-        <button onclick="g.deleteRandomDie()" class="btn">Remove</button>
-        <button onclick="g.rerollMultiple(0)" class="btn">Reroll all</button>
-        <button onclick="g.rerollMultiple(1)" class="btn">Reroll 1</button>
-        <button onclick="g.rerollMultiple(3)" class="btn">Reroll 3</button>
-
-        <input class="input" type="text">
-    </div> -->
-
-
     <!-- GAME -->
     <div id="screen">
         <!-- Pile Dice -->      
@@ -61,12 +49,39 @@
          </div>
         
         <div id="itemContainer">
-            <img id="how" src="./img/ico/die-info.png" alt="">
+            <img id="how" src="./img/ico/die-info.png" alt="" onclick="toggleModal('how-modal')">
             <div id="items"></div>
         </div>
 
     </div>
 
+    <!-- How -->
+    <div id="how-modal" class="modal hide">
+        <div class="modal-body">
+            <h1>How it works</h1>
+            <br>
+            <h3>Damage from dice</h3>
+            <p>
+                Whenever a die is rolled in this game if the roll is [1] or [6], you take 1 damage. When your life reaches 0 you die.
+            </p>
+            
+            <h3>How to win</h3>
+            <p>
+                Get to the last floor or the TROLL-A oil platform. Each time you resolve an event card you move to the higher floor.
+            </p>
+            
+            <h3>Event cards</h3>
+            <p>
+                At the start of each turn you pick one of two event card. Then all your dice is rerolled and you reveal the event actions.
+            </p>
+    
+            <button onclick="toggleModal('how-modal')">
+                <h2>HIDE</h2>
+            </button>
+        </div>
+        
+    </div>
+    
 </body>
 </html>
 

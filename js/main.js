@@ -13,10 +13,8 @@ class Game {
         this.itemsRef
     }
 
-    //Game handler
+    //Game
         startGame(){
-
-            this.maxFloor = Object.keys(this.cardsRef).length
 
             this.genSelectionScreen()
             
@@ -32,16 +30,16 @@ class Game {
         updateUI(){
             el('lifeUi').innerHTML = g.life
             el('coinsUi').innerHTML = g.coins
-            g.floor = g.maxFloor - Object.keys(this.cardsRef).length
             el('floorUi').innerHTML = `${g.floor}/${g.maxFloor}`
 
             // console.log("UI updated.");
-            
         }
+
 
     //Screens
         proceed(){
             this.genSelectionScreen()
+            this.changeFloor({val:1})
         }
         genSelectionScreen(){
             el('cardContainer').innerHTML = ""
@@ -71,6 +69,61 @@ class Game {
         }
 
     //Dice
+        gainDice(quant, arg){
+            if(quant === undefined){quant = 1}
+
+            for(let i = 0; i < quant; i++){
+                let die = new Die(arg)
+
+                if(arg === undefined || arg.dmg === undefined){
+                    this.checkDmg(die)
+                }
+            }
+        }
+        loseDice(arg){
+            //needs {val:n} for more than 1
+            if(arg === undefined || arg.mode === undefined || arg.mode ==="n"){
+                let val
+
+                if(arg === undefined || arg.val === undefined){
+                    val =  1
+                } else{
+                    val = arg.val
+                }
+
+                const count = Math.max(0, Math.min(val, this.dice.length));
+                const diceToDelete = shuffle(this.dice.slice()).slice(0, count);
+                diceToDelete.forEach(die => die.delete());
+            }
+            else if(arg.mode === "even"){
+                this.dice.slice().forEach(die => {
+                    if(die.value % 2 === 0){
+                        die.delete()
+                    }
+                })
+            }
+            else if(arg.mode === "odd"){
+                this.dice.slice().forEach(die => {
+                    if(die.value % 2 !== 0){
+                        die.delete()
+                    }
+                })
+            }
+            else if(arg.mode === "duplicate"){
+                console.log(1);
+                
+                let diceValues = []
+
+                this.dice.slice().forEach(die => {
+                    if(diceValues.includes(die.value)){
+                        die.delete()
+                    }
+                    else{
+                        diceValues.push(die.value)
+                    }
+                })
+            }
+        }
         clearDice(){
             g.dice = []
             el("dice").innerHTML = ``
@@ -87,19 +140,26 @@ class Game {
             //Generate a new one with combined roll value
             new Die({value:newRollValue})
         }
-        addDice(quant, args){
-            for(let i = 0; i < quant; i++){
-                new Die(args)
-            }
-        }
-        
-        rerollMultiple(n){
+        rerollMultiple(n, arg){
 
-            if(n === 0){
+            //Reroll all
+            if(n === undefined){
+                let rolls = []
                 g.dice.forEach(die => {
-                    die.reroll()  
+                    die.reroll()
+                    rolls.push(die.value)
                 })
-            } else {
+
+                //Check dmg per rerolled die
+                if(arg === undefined || arg.dmg === undefined){
+                    this.checkDmg()
+                }
+
+                return rolls;
+            } 
+
+            //Reroll n
+            else {
                 
                 //Limit rerolls to number of dice on board
                 if(n > g.dice.length){
@@ -112,13 +172,16 @@ class Game {
                 for (let i = 0; i < n; i++) {
                     g.dice[i].reroll()
                     rolls.push(g.dice[i].value);
+
+                    //Check dmg per rerolled die
+                    if(arg === undefined || arg.dmg === undefined){
+                        this.checkDmg(g.dice[i])
+                    }
                 }
 
                 console.log(rolls);
                 return rolls
             }
-
-            this.updateUI()
         }
         rollValues(){
             let rolls = []
@@ -137,50 +200,34 @@ class Game {
             return rolls
         }
 
-        //Remove
-        deleteRandomDie(){
-            rarr(g.dice).delete()
-        }
-        deleteDice(arg){
-            if(arg.mode === "even"){
-                this.dice.slice().forEach(die => {
-                    if(die.value % 2 === 0){
-                        die.delete()
+
+    //Life
+        checkDmg(die){
+            let totalDmg = 0
+
+            if(die === undefined){
+                g.dice.forEach(die => {
+                    if(die.value === 1 || die.value === 6){
+                        g.loseLife(1)
+                        totalDmg++
                     }
                 })
             }
-            else if(arg.mode === "odd"){
-                this.dice.slice().forEach(die => {
-                    if(die.value % 2 !== 0){
-                        die.delete()
-                    }
-                })
-            }
-            else if(arg.mode ==="n"){
-                const count = Math.max(0, Math.min(arg.val, this.dice.length));
-                const diceToDelete = shuffle(this.dice.slice()).slice(0, count);
-                diceToDelete.forEach(die => die.delete());
-            }
-            else if(arg.mode === "duplicate"){
-                console.log(1);
+            else {
+                console.log(die);
                 
-                let diceValues = []
-
-                this.dice.slice().forEach(die => {
-                    if(diceValues.includes(die.value)){
-                        die.delete()
-                    }
-                    else{
-                        diceValues.push(die.value)
-                    }
-                })
+                if(die.value === 1 || die.value === 6){
+                    g.loseLife(1)
+                    totalDmg++
+                }
             }
+
+            console.log('Total damage: ' + totalDmg);
+            
+            g.updateUI()
         }
-
-
-    //Game logic
         loseLife(n){
-            this.life -= n
+            this.life -= n*1
 
             //Life change animation
             if(n > 0){
@@ -191,7 +238,7 @@ class Game {
             
         }
         gainLife(n){
-            this.life += n
+            this.life += n*1
 
             //Life change animation
             if(n > 0){
@@ -201,23 +248,33 @@ class Game {
 
             console.log(`Life gained: ${n}`);
         }
-    
+    //Floor
+        changeFloor(arg){
+            console.log(this.floor);
+            
+            this.floor = Math.max(0, this.floor += arg.val*1)
+
+            console.log(this.floor);
+
+            this.updateUI()
+        }
+
     //Coins
         gainCoins(n){
-            this.coins += n
+            this.coins += n*1
             console.log(`Coins added: ${n}`)
             runAnim(el('coinsUi') , "statChange" )
             this.updateUI()
 
         }
         loseCoins(n){
-            this.coins = Math.max(this.coins - n, 0)
+            this.coins = Math.max(this.coins - n*1, 0)
             runAnim(el('coinsUi') , "statChange" )
             this.updateUI()
 
         }
         pay(n){
-            if(this.coins >= n){
+            if(this.coins >= n*1){
                 this.loseCoins(n)
                 this.updateUI()
                 return true
@@ -230,6 +287,8 @@ class Game {
 
     //Items
         addItem(quant, arg){
+            if(quant === undefined){quant = 1}
+
             for(let i = 0; i < quant; i++){
                 new Item(arg)
             }

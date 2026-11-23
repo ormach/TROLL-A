@@ -106,7 +106,6 @@ class Die {
         removeFromArr(g.dice, this)
     }
     async setRollValue(val, bypassOnRollFx, ignoreRounding){
-        if (val > 8) val = 8 //Frog + crown + pliers combo 
 
         //Normalize rolls
         if(ignoreRounding === undefined){
@@ -127,12 +126,7 @@ class Die {
 
         //Update html
         this.updateHtml()
-
-        //Check for damage (everything goes through setRollValue)
-        if(this.value === 1 || this.value === 6){
-            g.loseLife(1)
-        }
-
+        
         g.updateUI()
     }
 

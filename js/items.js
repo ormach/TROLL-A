@@ -3,6 +3,7 @@ class Item {
         this.refObj = cloneArr(g.itemsRef[rarr(Object.keys(g.itemsRef))])
         this.itemId = this.refObj.itemId
         this.fx = itemEffectRef["fx" + this.itemId]
+        this.name = this.refObj.name
 
         g.items.push(this)
         this.genHtml()        
@@ -13,7 +14,7 @@ class Item {
         item.classList = "item"
         item.dataset.tooltip = this.refObj.effect;
         item.innerHTML = `
-            <img src="./img/item/item.png" alt="">
+            <img src="./img/item/id=${this.name}.png" alt="">
         `
         el('items').append(item)
         this.htmlElem = item
@@ -52,22 +53,22 @@ let itemEffectRef = {
     },
     //Adrenaline pen
     fx4(){
-        g.addDice(1)
+        g.gainDice(1)
         g.gainLife(6)     
     },
     //Booze
     fx5(){
-        g.deleteDice({mode:'duplicate'})   
+        g.loseDice({mode:'duplicate'})   
     },
     //Coffee
     fx6(){
         let diff = g.dice.length - 5
 
         if(diff > 0){
-            g.deleteDice({mode:"n", val:diff})
+            g.loseDice({mode:"n", val:diff})
         }  
         else{
-            g.addDice(diff * -1)
+            g.gainDice(diff * -1)
         }
     },
     //Glue
@@ -76,10 +77,16 @@ let itemEffectRef = {
     },
     //Tape
     fx8(){
-        g.rerollMultiple(0)    
+        g.rerollMultiple()    
     },
     //Knife
     fx9(){
-        g.deleteRandomDie()
+        g.loseDice()
+    },
+    //Map
+    fx10(){
+        g.loseDice({mode:"n", val: 2})
+        g.changeFloor({val: -1})
+        g.updateUI()
     }
 }

@@ -57,7 +57,7 @@ class Card{
                 console.log('Listener triggered: card selected.');
                 
                 //Reroll all dice
-                g.rerollMultiple(0)
+                g.rerollMultiple()
 
                 //Show next card
                 g.genEventScreen({cardId: this.cardId})
@@ -165,6 +165,130 @@ let cardEffectRef = {
         //     g.rerollMultiple(3)
         // },
 
+    //bouncer
+        ac1bouncer(){
+            g.rerollMultiple()
+            
+            g.checkDmg()
+            g.checkDmg()
+            
+            g.proceed()
+        },
+        ac2bouncer(){
+            g.rerollMultiple(1)
+
+            if(
+                g.rollValues().some(value => value === 1)
+                && 
+                g.rollValues().some(value => value === 2)
+                && 
+                g.rollValues().some(value => value === 3)
+            ){
+                g.loseDice({val: 2})
+            }
+            else{
+                g.gainDice(2)
+            }
+            
+            g.proceed()
+        },
+        ac3bouncer(){
+            let roll = g.rerollMultiple(1)
+
+            g.gainCoins(roll)
+
+            if(g.coins > 9){
+                g.gainDice()
+            }
+        },
+
+    //tunnel
+        ac1tunnel(){
+            const rolls = g.rollValues();
+
+            if(
+                [1, 2, 3].some(value => !rolls.includes(value)))
+            {
+                let val = Math.round(g.life/2)
+                g.loseLife(val)
+            }
+            
+            g.proceed()
+        },
+        ac2tunnel(){
+            g.gainDice(2)
+            g.proceed()
+        },
+        ac3tunnel(){
+            g.rerollMultiple(2)
+        },
+
+    //casino
+        ac1casino(){
+            let rolls = g.rerollMultiple()
+            console.log(rolls);
+            
+
+            g.dice.forEach(die => {
+                if(die.value === 2){
+                    g.gainCoins(1)
+                    console.log('coin');
+                    
+                }
+                else if(die.value === 3){
+                    g.gainLife(1)
+                }
+                else if(die.value === 4){
+                    g.gainDice()
+                    console.log('+die');
+                }
+                else if(die.value === 5){
+                    g.loseDice({mode:"n", val:1})
+                    console.log('-die');
+                    
+                }
+            })
+            g.proceed()
+            
+        },
+        ac2casino(){
+            generic()
+        },
+    
+    //loot
+        ac1loot(){
+            if(
+                g.rollValues().some(value => value === 2)
+                && 
+                g.rollValues().some(value => value === 4)
+            ){
+                g.addItem()
+                g.proceed()
+            }
+        },
+        ac2loot(){
+            g.gainDice(2)
+            g.addItem()
+            g.proceed()
+        },
+        ac3loot(){
+            g.rerollMultiple(2)
+        },
+
+    //rest
+        ac1rest(){
+            g.addItem()
+            g.proceed()
+        },
+        ac2rest(){
+            g.loseDice()
+            g.proceed()
+        },
+        ac3rest(){
+            g.gainLife(4)
+            g.proceed()
+        },
+
     //shop
         ac1shop(){
             if(g.pay(8)){
@@ -173,12 +297,12 @@ let cardEffectRef = {
             }
         },
         ac2shop(){
-            g.addDice(1)
+            g.gainDice(1)
             g.addItem(1)
             g.proceed()
         },
         ac3shop(){
-            g.rerollMultiple(0)
+            g.rerollMultiple()
             g.gainCoins(g.dice.length)
         },
   
@@ -187,7 +311,7 @@ let cardEffectRef = {
             let roll = g.rerollMultiple(1)
 
             if(roll.some(value => [1,2].includes(value))){
-                g.addDice(3)
+                g.gainDice(3)
             }
 
             g.proceed() //Proceed
@@ -199,7 +323,7 @@ let cardEffectRef = {
             let roll = g.rerollMultiple(1)
 
             if(roll.some(value => [2,3].includes(value))){
-                g.addDice(1)
+                g.gainDice(1)
             }
             else if(roll.some(value => [4,5].includes(value))){
                 g.proceed() //Proceed
@@ -264,7 +388,7 @@ let cardEffectRef = {
             }
         },
         ac2door(){
-            g.addDice(2)
+            g.gainDice(2)
             g.proceed()
         },
         ac3door(){
@@ -292,17 +416,12 @@ let cardEffectRef = {
 
     //vent
         ac1vent(){
-            g.rerollMultiple(0)
+            g.rerollMultiple()
 
-            //Check for damage (everything goes through setRollValue)
-            //Slice needed to delete dice while iterating
-            g.dice.forEach(die => {
-                if(die.value === 1 || die.value === 6){
-                    g.loseLife(2)
-                }
-            })
+            g.checkDmg()
+            g.checkDmg()
 
-            g.deleteDice({mode:"odd"})
+            g.loseDice({mode:"odd"})
 
             g.proceed()
         },
@@ -315,10 +434,10 @@ let cardEffectRef = {
             let roll = g.rerollMultiple(1)
 
             if(isOdd(roll)){
-                g.addDice(roll)
+                g.gainDice(roll)
             }
             else{
-                g.deleteDice({mode:"n", val: roll})
+                g.loseDice({mode:"n", val: roll})
             }
 
             g.proceed()
@@ -336,9 +455,9 @@ let cardEffectRef = {
             g.proceed()
         },
         ac2monster(){
-            g.rerollMultiple(0)
+            g.rerollMultiple()
         },
         ac3monster(){
-            g.addDice(1)
+            g.gainDice()
         },
 }
