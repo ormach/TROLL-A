@@ -167,6 +167,10 @@ let cardEffectRef = {
 
     //intro
         ac1intro(){
+            g.genEventScreen({cardId: "intro2"})
+        },
+    //intro2
+        ac1intro2(){
             g.genSelectionScreen()
         },
 
