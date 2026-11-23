@@ -6,7 +6,7 @@ hide,cardId,ac1title,ac1,ac2title,ac2,ac3title,ac3,repeatable,title,description,
 ,shop,Buy,Pay 8 gold to get 2 items.,Steal,Gain 1 die| and a random item.,Bargain,Reroll all dice| get 1 gold per die (repeatable).,nny,Shop,,y
 ,rest,Repair,Get 1 item.,Meditate,Remove 1 dice.,Tend wounds,Get 4 life.,,Rest,You find yourself in a dark quite area. Maybe if you stay silent it could be a good place to rest and catch your breath.,
 ,door,Unlock,Proceed if you have a [2] and [4].,Break,Gain 2 dice.,Lockpick,Reroll 3 dice (repeatable).,nny,Door,,
-,loot,Unlock,Get an item if you have a  [2] and [4].,Break the lid open,Gain 2 die and a random items.,Lockpick,Reroll 2 dice (repeatable).,nny,Unwanted guest,You hear a conversation in a room nearby. Warm orange light reveals a locked iron box...,
+,loot,Unlock,Get an item if you have a  [2] and [4].,Break the lid open,Gain 2 dice and a random items.,Lockpick,Reroll 2 dice (repeatable).,nny,Unwanted guest,You hear a conversation in a room nearby. Warm orange light reveals a locked iron box...,
 ,elevator,Fix the elevator,Remove a [2] die to proceed.,Climb the elevator shaft,Gain 1 die.,,,,Elevator,,
 ,vent,Jump in,Reroll all dice. Take tripple damage fom this reroll. Destory odd rolls. ,Return,Gain 1 die.,,,,Ventilation,,
 ,explosive,Detonate,Reroll 1 die. If roll is odd| add that many dice. If roll is even| remove that many dice instead.,Take the long path,Gain 1 die.,,,,Explosives,, 
