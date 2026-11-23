@@ -165,6 +165,11 @@ let cardEffectRef = {
         //     g.rerollMultiple(3)
         // },
 
+    //intro
+        ac1intro(){
+            g.genSelectionScreen()
+        },
+
     //bouncer
         ac1bouncer(){
             g.rerollMultiple()

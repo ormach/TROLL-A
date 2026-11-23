@@ -16,7 +16,8 @@ class Game {
     //Game
         startGame(){
 
-            this.genSelectionScreen()
+            // this.genSelectionScreen()
+            this.genEventScreen({cardId:"intro"})
             
             //Starting dice
             for (let i = 0; i < config.startingDice; i++) {
