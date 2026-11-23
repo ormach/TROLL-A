@@ -1,7 +1,7 @@
 hide,cardId,ac1title,ac1,ac2title,ac2,ac3title,ac3,repeatable,title,description,wide
 ,raijin,Fight,Reroll a die. If that die roll value is [1] or [2] add 3 dice.,Defend,Gain 1 die.,,,,Raijin,You hear footsteps and stop right behind the corner. Someone is here with you. You hear cracling sounds as a large figure emerges from the concrete tunnel.,y
 ,medusa,Fight,Reroll a die. If roll is 2 or 3 add a die.<br>If roll is 4 or 5 go to the next floor.,Run!,Gain 1 die.,,,yn,Medusa,You sense motion in a small room in front of you. Wires are moving and you see a twisted body fully controlled by a mechanical device.,y
-,kali,Fight,Lose 3 life if you don't have a [3]. Loose 5 lfe if you don't have a [5].,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).,nny,Kali,Your vission fails you. Everything gets so blurry... You see a three meters tall multi-armed creature in front of you.,y
+,kali,Fight,Lose 3 life if you don't have a [3]. Lose 5 lfe if you don't have a [5].,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).,nny,Kali,Your vission fails you. Everything gets so blurry... You see a three meters tall multi-armed creature in front of you.,y
 ,anubis,Fight,Lose life eqal to total roll value of odd dice. Cap at 5.,Defend,Gain 1 die.,Evade,Reroll 3 dice (repeatable).,nny,Anubis,,y
 ,shop,Buy,Pay 8 gold to get 2 items.,Steal,Gain 1 die| and a random item.,Bargain,Reroll all dice| get 1 gold per die (repeatable).,nny,Shop,,y
 ,rest,Repair,Get 1 item.,Meditate,Remove 1 dice.,Tend wounds,Get 4 life.,,Rest,You find yourself in a dark quite area. Maybe if you stay silent it could be a good place to rest and catch your breath.,
@@ -11,7 +11,7 @@ hide,cardId,ac1title,ac1,ac2title,ac2,ac3title,ac3,repeatable,title,description,
 ,vent,Jump in,Reroll all dice. Take tripple damage fom this reroll. Destory odd rolls. ,Return,Gain 1 die.,,,,Ventilation,,
 ,explosive,Detonate,Reroll 1 die. If roll is odd| add that many dice. If roll is even| remove that many dice instead.,Take the long path,Gain 1 die.,,,,Explosives,, 
 ,casino,Gamble,Reroll all. Gain 1 gold per [2]| 1 life per [3]| 1 die per [4]| and lose 1 die per [5].,Return,Gain 1 die.,,,,Casino,,
-,tunnel,Wonder,Loose half of life unless you have [1][2][3].,Return,Gain 2 dice.,Wander,Reoll 3 dice (repeatable).,nny,Sewers system,,
+,tunnel,Wonder,Lose half of life unless you have [1][2][3].,Return,Gain 2 dice.,Wander,Reoll 3 dice (repeatable).,nny,Sewers system,,
 ,bouncer,Duel,Reroll all. Take triple damage.,Intel,Reroll a die. If you have [1][2][3] remove 2 dice| else add 2.,Trade,Reroll a die. Gain that much gold. If you have more than 9 gold add a die (repeatable).,nny,Trickster,,
 ,monster,Attack,If total roll value of your dice is less than 15| take 5 dmg.,Block,Reroll all (repeatable).,Enrage,Gain 1 die (repeatable).,nyy,Monster,15 life,y
 ,intro,Continue,...,,,,,,TROLL-A,"5 minutes until landing."<br>"Roger."<br><br>"Just look at that thing."<br>"One of the largest made."<br>"And people won’t shut up about the pyramids. Just look at the size of it... <br>a manmade mountain."<br>"Lights still on; EM-Batteries were way ahead of the time..."<br><br>"Team. Prepare for landing."<br>"Roger.",
