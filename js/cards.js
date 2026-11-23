@@ -42,12 +42,12 @@ class Card{
             //Adjust image card for wide images
             if(this.referenceObj.wide === "y"){
                 imgCard.innerHTML = `
-                    <div class="imgContainer wide" style="background-image: url('../img/card/id=${this.cardId}.jpg');"></div>
+                    <div class="imgContainer wide" style="background-image: url('./img/card/id=${this.cardId}.jpg');"></div>
                 `
             }
             else{
                 imgCard.innerHTML = `
-                    <div class="imgContainer" style="background-image: url('../img/card/id=${this.cardId}.jpg');"></div>
+                    <div class="imgContainer" style="background-image: url('./img/card/id=${this.cardId}.jpg');"></div>
                 `
             }
 
@@ -78,14 +78,14 @@ class Card{
             
             if(g.cardsRef[cardRef.cardId].wide === "y"){
                 imgCard.innerHTML = `
-                    <div class="imgContainer wide" style="background-image: url('../img/card/id=${cardRef.cardId}.jpg');"></div>
+                    <div class="imgContainer wide" style="background-image: url('./img/card/id=${cardRef.cardId}.jpg');"></div>
                 `
                 //Shift animation
                 runAnim(imgCard.childNodes[1], "imgShift")
             }
             else{
                 imgCard.innerHTML = `
-                    <div class="imgContainer" style="background-image: url('../img/card/id=${cardRef.cardId}.jpg');"></div>
+                    <div class="imgContainer" style="background-image: url('./img/card/id=${cardRef.cardId}.jpg');"></div>
                 `
             }
 
