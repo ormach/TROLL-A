@@ -304,8 +304,8 @@ let g = new Game
 
 //Fetch csv file, parse to JSON, assign it to ref obj
     Promise.all([
-        fetch('../data/cards.csv').then(response => response.text()),
-        fetch('../data/items.csv').then(response => response.text())
+        fetch('./data/cards.csv').then(response => response.text()),
+        fetch('./data/items.csv').then(response => response.text())
     ])
     .then(([cardsCsv, itemsCsv]) => {
         const cards = JSON.parse(csvJSON(cardsCsv));
